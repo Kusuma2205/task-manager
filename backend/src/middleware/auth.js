@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 
-const SECRET = 'kusuma@taskmanager2026secretkey';
+const SECRET = process.env.JWT_SECRET;
 
 function authenticate(req, res, next) {
   const token = req.headers.authorization?.split(' ')[1];
