@@ -1,16 +1,15 @@
 const express = require('express');
 const cors = require('cors');
 
-const app = express();
-
-app.use(cors({
+const corsOptions = {
   origin: '*',
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization']
-}));
+};
 
-app.options('*', cors());
+const app = express();
 
+app.use(cors(corsOptions));
 app.use(express.json());
 
 app.use('/api/auth', require('./src/routes/auth'));
