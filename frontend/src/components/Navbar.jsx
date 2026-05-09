@@ -16,22 +16,23 @@ function Navbar() {
   return (
     <nav style={{
       background: 'linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #4c1d95 100%)',
-      boxShadow: '0 4px 20px rgba(0,0,0,0.15)'
-    }} className="px-6 py-4">
-      <div className="max-w-7xl mx-auto flex justify-between items-center">
-        <div className="flex items-center gap-8">
-          <Link to="/dashboard" className="flex items-center gap-2">
+      boxShadow: '0 4px 20px rgba(0,0,0,0.15)',
+      padding: '12px 24px'
+    }}>
+      <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '32px' }}>
+          <Link to="/dashboard" style={{ display: 'flex', alignItems: 'center', gap: '8px', textDecoration: 'none' }}>
             <div style={{
               background: 'linear-gradient(135deg, #6366f1, #8b5cf6)',
               borderRadius: '10px',
               padding: '6px 10px'
             }}>
-              <span className="text-white font-black text-sm">TM</span>
+              <span style={{ color: 'white', fontWeight: '900', fontSize: '14px' }}>TM</span>
             </div>
-            <span className="text-white font-bold text-lg">TaskFlow</span>
+            <span style={{ color: 'white', fontWeight: '700', fontSize: '18px' }}>TaskFlow</span>
           </Link>
 
-          <div className="hidden md:flex items-center gap-1">
+          <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
             {[
               { path: '/dashboard', label: 'Dashboard' },
               { path: '/projects', label: 'Projects' },
@@ -57,8 +58,8 @@ function Navbar() {
           </div>
         </div>
 
-        <div className="flex items-center gap-3">
-          <div className="flex items-center gap-2">
+        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
             <div style={{
               width: '34px',
               height: '34px',
@@ -69,11 +70,12 @@ function Navbar() {
               justifyContent: 'center',
               color: 'white',
               fontWeight: '700',
-              fontSize: '13px'
+              fontSize: '13px',
+              flexShrink: 0
             }}>
               {user?.name?.charAt(0).toUpperCase()}
             </div>
-            <div className="hidden md:block">
+            <div>
               <p style={{ color: 'white', fontSize: '13px', fontWeight: '600', margin: 0 }}>{user?.name}</p>
               <span className={user?.role === 'admin' ? 'badge-admin' : 'badge-member'}>
                 {user?.role?.toUpperCase()}
